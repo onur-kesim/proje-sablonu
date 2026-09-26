@@ -28,5 +28,5 @@ Ayrıntı: `KURULUM.md`. İşleyişin tamamı: `CLAUDE.md` (çekirdek blok, 11 b
 - Beş profil + profil şablonu (`profiller/`): yazılım · araştırma · eğitim-koçluk · iş-strateji · tasarım; sekiz başlık, ≤2.000 bayt.
 - PR şablonu: DOĞRULA + TESLİM kutuları, DENETİM raporu, NE ÖLÇÜLEMEDİ.
 - `.github/workflows/release.yml`: `v*` etiketi → GitHub Release, notlar CHANGELOG'un aynı sürüm bölümünden (üçüncü taraf action yok).
-- `.github/dependabot.yml`: actions · npm · pip · pub · gradle güncelleyici.
+- `.github/dependabot.yml`: GitHub Actions güncelleyici açık; npm/pip/pub/gradle satırları yorumda, KUR'da yığına göre açılır (manifesti olmayan ekosistem koşumu kırmızı yapıyor — 26 Eyl ölçümü).
 - `.gitignore`, `.env.example`, `LICENSE` (MIT), `CHANGELOG.md`, `KURULUM.md`, `araclar/dal-korumasi.json`.
