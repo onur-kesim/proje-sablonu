@@ -1,6 +1,15 @@
-# DILIM — `<ad>`     açıldı: `<tarih>` · aşama: YAP · sürüm dilimi: HAYIR
+# DILIM — `<ad>`     açıldı: `<tarih>` · aşama: `<KEŞİF | YAP | DOĞRULA | TESLİM>` · sürüm dilimi: HAYIR
 Hedef: `<uçtan uca çalışan tek parça — ilk dilim yürüyen iskelettir, ≤7 gün>`
 Kabul: `<koşan test ya da ölçülebilir sonuç; düzyazı değil>`
+
+## ESAS KARARI (yalnız AŞAMA: KEŞİF — süre tavanı yok; hepsi dolunca insan "başla" der → YAPIM, bu bölüm silinir)
+- [ ] NE: tek paragraf — kim için, hangi sorun, neden şimdi (`belgeler/kesif/`)
+- [ ] danışılanlar ve görüşler kaydedildi — kim, tarih, ne dedi (kişisel veri: G2)
+- [ ] ARAÇ HARİTASI dolu: KEŞİF ve YAP satırları, BEKLE / ARAÇSIZ YAP sınıflarıyla
+- [ ] ilk dilim adayı yazıldı: ince yol + mekanik kabul + "dışarı çıktı" tanımı (kim alacak)
+- [ ] insan "başla" dedi → proje.toml asama = "yapim", tarih karar günlüğüne
+### KEŞİF ADIMLARI (sırayla; tarih baskısı yok, biten işaretlenir)
+- [ ] 
 
 ## YAP
 - [ ] başka açık dilim yok (WIP = 1)
