@@ -161,6 +161,9 @@ def altin_kume():
     vakalar.append(('bozuk_nabiz', (nabiz_gun(log, ['src/*'], simdi) or 0) > 7, True, 'D nabız'))
     log2 = f'{simdi - 1 * 86400}\nsrc/a.py\n'
     vakalar.append(('temiz_nabiz', (nabiz_gun(log2, ['src/*'], simdi) or 0) > 7, False, 'D yanlış-pozitif'))
+    vakalar.append(('bozuk_yapim_nabiz', nabiz_hukmu('yapim', 30, 7) == 'FAIL', True, 'D nabız YAPIM 30 gün'))
+    vakalar.append(('kesif_nabiz_yakmaz', nabiz_hukmu('kesif', 30, 7) == 'FAIL', False, 'D KEŞİF yanlış-pozitif'))
+    vakalar.append(('kesif_atlandi', nabiz_hukmu('kesif', 30, 7) == 'ATLANDI', True, 'D KEŞİF: ATLANDI, PASS değil'))
     satirlar, gecti = [], True
     for ad, sonuc, beklenen, etiket in vakalar:
         ok = sonuc == beklenen
@@ -227,8 +230,17 @@ def kapi_oran(kok, izlenen, urun, cfg):
     return ('belge/kod oranı', 'FAIL' if oran > tavan else 'PASS', f'{belge} belge / {kod} kod = {oran:.2f} (tavan {tavan})')
 
 
-def kapi_nabiz(kok, urun, cfg):
+def nabiz_hukmu(asama, gun, tavan):
+    """KEŞİF'te nabız ölçülmez (fikir aşaması süresizdir; K1-K2-K8 işlemez); YAPIM'da tavanı aşan gün FAIL."""
+    if asama == 'kesif':
+        return 'ATLANDI'
+    return 'FAIL' if gun > tavan else 'PASS'
+
+
+def kapi_nabiz(kok, urun, cfg, asama='yapim'):
     tavan = cfg.get('nabiz_gun_tavan', 7)
+    if asama == 'kesif':
+        return ('ürün nabzı', 'ATLANDI', 'KEŞİF aşaması: süre tavanı yok (proje.toml [proje] asama)')
     try:
         log = subprocess.run(['git', 'log', '--pretty=format:%ct', '--name-only'], cwd=kok,
                              capture_output=True, text=True, check=True).stdout
@@ -237,7 +249,7 @@ def kapi_nabiz(kok, urun, cfg):
     gun = nabiz_gun(log, urun.get('desen', []), time.time())
     if gun is None:
         return ('ürün nabzı', 'ÖLÇÜLEMEDİ', 'ürün deseniyle eşleşen commit yok')
-    return ('ürün nabzı', 'FAIL' if gun > tavan else 'PASS', f'son ürün commit’i {gun:.1f} gün önce (tavan {tavan})')
+    return ('ürün nabzı', nabiz_hukmu(asama, gun, tavan), f'son ürün commit’i {gun:.1f} gün önce (tavan {tavan})')
 
 
 def kapi_kanit(izlenen, urun):
@@ -251,11 +263,13 @@ def kapilari_kos(kok, cfg):
     urun = cfg.get('urun', {})
     k = cfg.get('kapilar', {})
     komutlar = cfg.get('komutlar', {})
-    sonuclar = [kapi_komut(ad, komutlar.get(ad, ''), kok) for ad in ('kur', 'test', 'lint', 'build')]
+    asama = cfg.get('proje', {}).get('asama', 'yapim')
+    sonuclar = [('aşama', 'PASS' if asama in ('kesif', 'yapim') else 'FAIL', f'proje.toml [proje] asama = {asama!r} (kesif | yapim)')]
+    sonuclar += [kapi_komut(ad, komutlar.get(ad, ''), kok) for ad in ('kur', 'test', 'lint', 'build')]
     sonuclar.append(kapi_kod_sagligi(kok, izlenen, urun.get('desen', []), k))
     sonuclar.append(kapi_sir(kok, izlenen))
     sonuclar.append(kapi_oran(kok, izlenen, urun, k))
-    sonuclar.append(kapi_nabiz(kok, urun, k))
+    sonuclar.append(kapi_nabiz(kok, urun, k, asama))
     sonuclar.append(kapi_kanit(izlenen, urun))
     return sonuclar
 
@@ -273,6 +287,11 @@ def yazdir_rapor(sonuclar, guvenilir):
 
 
 def main(argv):
+    for akis in (sys.stdout, sys.stderr):  # Windows konsolu (cp1254) '✓' basamaz; 26 Eyl Quadrans KUR'da ölçüldü
+        try:
+            akis.reconfigure(encoding='utf-8', errors='replace')
+        except (AttributeError, ValueError):
+            pass
     kok = os.getcwd()
     if '--yigin' in argv:
         cfg, hata = toml_oku(kok)
