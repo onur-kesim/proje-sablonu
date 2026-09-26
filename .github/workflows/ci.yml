@@ -32,7 +32,7 @@ jobs:
 
       - name: Java kur (Android/Gradle)
         if: steps.cfg.outputs.yigin == 'android'
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "17"
