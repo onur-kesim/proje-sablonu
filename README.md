@@ -3,9 +3,7 @@
 > Yeni projede bu README projenin kendisi için yeniden yazılır; **başlık düzeni kalır**: önce NE TESLİM EDİLMEDİ, sonra RAKİP/ÖNCÜL, kurulum tek komut, BİTTİ LİSTESİ.
 
 ## NE TESLİM EDİLMEDİ (bu sürümde HAYIR ya da sonraki dilim)
-- `release.yml` — etiket atılınca sürüm notu üretme: **sonraki dilim**.
 - `kur.py` sihirbazı — profil seçimi, hesap ölçümü, dal korumasını otomatik açma: **sonraki dilim**; bugün KURULUM.md'deki elle adımlar.
-- `dependabot.yml` — bağımlılık güncelleyici: **sonraki dilim**.
 - Windows çalıştırıcı (`[yigin] os = "windows"`): CI'da **ölçülmedi**, alan proje.toml'da var, iş akışı henüz okumuyor.
 - Flutter ve Android kurulum adımları CI'da var ama gerçek bir mobil projede **ölçülmedi** (ÖLÇÜLEMEDİ).
 - Kod sağlığı karmaşıklık ölçümü yalnız Python için; diğer dillerde dosya uzunluğu ölçülür, karmaşıklık ÖLÇÜLEMEDİ yazılır.
@@ -29,4 +27,6 @@ Ayrıntı: `KURULUM.md`. İşleyişin tamamı: `CLAUDE.md` (çekirdek blok, 11 b
 - `.github/workflows/ci.yml`: tek iş akışı, yığına göre koşullu kurulum; `kapilar` + `kor-kapi` işleri.
 - Beş profil + profil şablonu (`profiller/`): yazılım · araştırma · eğitim-koçluk · iş-strateji · tasarım; sekiz başlık, ≤2.000 bayt.
 - PR şablonu: DOĞRULA + TESLİM kutuları, DENETİM raporu, NE ÖLÇÜLEMEDİ.
+- `.github/workflows/release.yml`: `v*` etiketi → GitHub Release, notlar CHANGELOG'un aynı sürüm bölümünden (üçüncü taraf action yok).
+- `.github/dependabot.yml`: actions · npm · pip · pub · gradle güncelleyici.
 - `.gitignore`, `.env.example`, `LICENSE` (MIT), `CHANGELOG.md`, `KURULUM.md`, `araclar/dal-korumasi.json`.
