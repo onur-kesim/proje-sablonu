@@ -27,7 +27,7 @@ Ayrıntı: `KURULUM.md`. İşleyişin tamamı: `CLAUDE.md` (çekirdek blok, 11 b
 - KUR ≤ 1 gün; MOD KRİTİK'in iki denetim turu yalnız TESLİM'de (KUR/altyapıda tek tur, D1 yeter); PROJE-ÖZEL iskeletinde PROJE KURALLARI (≤5). Dayanak: ilk gerçek kurulumda KUR kancasına iki tur + 26 mutant koşuldu (26 Eyl ölçümü).
 - `proje.toml`: yığın, komutlar, ürün deseni, profil, kapı eşikleri — CI ve araç tek kaynaktan okur.
 - `araclar/kapilar.py`: 14 vakalık altın küme öz-testi (geçmezse ölçüm reddedilir) → kur/test/lint/build → kod sağlığı (400 satır, karmaşıklık 15, dondurulmuş taban) → gizli anahtar taraması → belge/kod oranı → ürün nabzı (git log) → kanıt < ürün. Yalnız standart kütüphane, Python ≥ 3.11.
-- `.github/workflows/ci.yml`: tek iş akışı, yığına göre koşullu kurulum; `kapilar` + `kor-kapi` işleri.
+- `.github/workflows/ci.yml`: tek iş akışı, yığına göre koşullu kurulum; `kapilar` + `kor-kapi` işleri; çalıştırıcı `ubuntu-24.04` sabit (`ubuntu-latest` 19 Ekim 2026'da Ubuntu 26'ya taşınıyor — GitHub koşum notu; 26.04'e geçiş kararla).
 - Beş profil + profil şablonu (`profiller/`): yazılım · araştırma · eğitim-koçluk · iş-strateji · tasarım; sekiz başlık, ≤2.000 bayt.
 - PR şablonu: DOĞRULA + TESLİM kutuları, DENETİM raporu, NE ÖLÇÜLEMEDİ.
 - `.github/workflows/release.yml`: `v*` etiketi → GitHub Release, notlar CHANGELOG'un aynı sürüm bölümünden (üçüncü taraf action yok).
