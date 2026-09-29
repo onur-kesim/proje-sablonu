@@ -9,7 +9,7 @@ mod = "NORMAL"              # NORMAL | KRİTİK (para/hukuk/güvenlik → yalnı
 
 [yigin]
 ad = "python"               # node | python | flutter | android | web-statik | yok
-os = "ubuntu"               # ubuntu | windows  (windows: CI şu sürümde ölçülmedi, README'de yazılı)
+os = "ubuntu"               # ubuntu | windows  (iş akışı bu alanı okumaz: kapilar her iki sistemde koşar; README'de yazılı)
 
 [komutlar]                  # boş dize = kapı ATLANDI olarak raporlanır (sessiz değil)
 kur = ""
