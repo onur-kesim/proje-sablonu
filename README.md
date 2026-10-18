@@ -4,7 +4,6 @@
 
 ## NE TESLİM EDİLMEDİ (bu sürümde HAYIR ya da sonraki dilim)
 - `kur.py` sihirbazı — profil seçimi, hesap ölçümü, dal korumasını otomatik açma: **sonraki dilim**; bugün KURULUM.md'deki elle adımlar.
-- Windows bacağının (`kapilar-windows`, windows-latest) GitHub'daki koşusu: iş akışında **tanımlı, ilk koşu ölçülmedi** (ÖLÇÜLEMEDİ); matris iş adının canlıda tam `kapilar` kalması da ölçülmedi (zorunlu kontrol ona bağlı). Yerelde Windows 11 + cp1254 + Python 3.12.10'da `kapilar.py` yeşil koştu (26 Eyl 2026). `[yigin] os` alanını iş akışı hâlâ okumuyor: matris her projede iki sistemi de koşar.
 - Alt süreç kodlamasının davranış vakası yalnız `kapi_komut` yolunda (26 Eyl 2026 çöküşü). `dosyalar` (`git ls-files`) ve `kapi_nabiz` (`git log`) çağrılarını altın küme yalnız STATİK tarar: metin-kipi `run`/`Popen`/`call`/`check_call`/`check_output` çağrısı `encoding='utf-8'` ve `errors`≠`'strict'` vermeli. Statik kural modül düzeyi çağrıları ve `from subprocess import run` takma adlarını görmez; ASCII dışı dosya adıyla davranış vakası yok, elle ölçüldü (Türkçe harflerin 12'sinden 10'u cp1254'te hatasız ama bozuk çözülüp `dosyalar()`'tan sessizce düşüyordu; Ğ ve Ş çöküyordu).
 - Flutter ve Android kurulum adımları CI'da var ama gerçek bir mobil projede **ölçülmedi** (ÖLÇÜLEMEDİ).
 - Kod sağlığı karmaşıklık ölçümü yalnız Python için; diğer dillerde dosya uzunluğu ölçülür, karmaşıklık ÖLÇÜLEMEDİ yazılır.

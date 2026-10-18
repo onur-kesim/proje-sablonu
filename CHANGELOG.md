@@ -1,11 +1,13 @@
 # CHANGELOG
 Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir sonraki etiketi bekler.
 
-## [Unreleased] — önerilen 0.3.0
+## [0.3.0] — 2026-10-18
 ### Değiştirildi
 - GENEL ESASLAR v2.1 → v2.2: `DURUM.md` DEVİR yalnız oturum sayacı, aşama/boş kutular ve açılış cümlesini taşır; son yapılan, yarım kalan, sıradaki iş, açık karar/bloker, araç eksiği, uyarı ve dosyalar DEVİR'in altındaki hâl bölümlerine (GUNCEL DURUM · SONRAKI ADIM · ACIK KARARLAR · SABIT CERCEVE · ARSIV DIZINI) yazılır — tek ev. Sebep (ölçüldü 18 Eki 2026): hafiza-kur'un `bolum-kur`u bu beş bölümü DEVİR'in ÜSTÜNE ekliyor, aynı bilgi DEVİR alanlarıyla iki evde yaşıyordu; bölümler şablonda hazır gelince `devral --esle canli=DURUM.md` `bolum-kur`suz kurulur, `not → derle` DEVİR'e ve karar günlüğüne dokunmaz. Çekirdek blok 8.371 → 8.476 bayt (tavan 8.500).
 ### Eklendi
 - KUR listesine seçmeli hafiza-kur kutusu; seçilirse makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/`, `gunluk/`, `kararlar/`) dört dosyaya sayılmaz.
+### Düzeltildi
+- README "NE TESLİM EDİLMEDİ"deki Windows bacağı maddesi bayattı: `kapilar-windows` ilk koşusu 29 Eyl 2026'da (PR #7) yeşil ölçülmüştü; PR #8 ve main koşumunda da yeşil (18 Eki 2026). Madde düşürüldü.
 
 ## [0.2.1] — 2026-09-29
 ### Eklendi
