@@ -4,6 +4,8 @@ Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir so
 ## [Unreleased] — önerilen 0.3.1
 ### Düzeltildi
 - `.gitattributes` eklendi: hafiza-kur makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/hafiza/**`) `-text`. Sebep (ölçüldü 18 Eki 2026, Windows 11, `core.autocrlf=true`): şablondan açılıp hafiza-kur kurulan proje ilk makinede YEŞİL, ama ikinci bir Windows klonunda satır sonu çevrimi mühürlü dosyaların SHA'sını değiştiriyor → `kapi` FAIL (10 H0: "CIPA BOZULDU", "defter MUHURSUZ degismis"). Aynı depo bu dört satırla klonlanınca `kapi` YEŞİL (iki klon aynı oturumda: dosyasız FAIL, dosyalı YEŞİL). hafiza-kur'u seçmeyen projede kuralların eşleştiği dosya yoktur, etkisizdir.
+### Değiştirildi
+- Karar tek ev (Onur kilidi 18 Eki 2026, şık a): her karar DURUM KARAR GÜNLÜĞÜ'ne tek satır; gerekçesi uzun olan ayrıca `hafiza.py karar` ile ADR olur, satır ADR yolunu taşır (KUR kutusu + günlük başlığı). Sebep: yeni bir claude.ai sohbeti hafiza-kur'lu şablon projesi için "Karar günlüğü bundan sonra elle yazılmaz. Kararlar hafiza.py karar ile" dedi — DURUM günlüğü ile `kararlar/` iki ev olacaktı.
 
 ## [0.3.0] — 2026-10-18
 ### Değiştirildi

@@ -61,7 +61,7 @@ Sayaç: `<ne, nerede okunur>`
 - [ ] profil seçildi, bloğu eklendi; profilin KUR ekleri kapandı
 - [ ] araç haritası çıkarıldı (keşif) · ileride gerekecek eksikler bildirildi
 - [ ] README iskeleti: NE TESLİM EDİLMEDİ ilk başlık
-- [ ] hafiza-kur kararı yazıldı (seçmeli): evetse skill'le `devral --esle canli=DURUM.md` + `kapi` + ilk commit; hayırsa hâl bölümleri elle tutulur
+- [ ] hafiza-kur kararı yazıldı (seçmeli): evetse skill'le `devral --esle canli=DURUM.md` + `kapi` + ilk commit; hayırsa hâl bölümleri elle tutulur. Karar tek evdedir: her karar DURUM KARAR GÜNLÜĞÜ'ne tek satır; gerekçesi uzun olan ayrıca `hafiza.py karar` ile ADR olur ve satır ADR yolunu taşır
 ### ARAÇ HARİTASI (çıkarıldı: `<tarih>` · kurulu/değil burada yazılmaz, aşamaya girince ölçülür)
 | Aşama | İhtiyaç | Araç | Yoksa |
 |---|---|---|---|
