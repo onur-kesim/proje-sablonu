@@ -7,7 +7,7 @@ Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir so
 ### Eklendi
 - KUR listesine seçmeli hafiza-kur kutusu; seçilirse makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/`, `gunluk/`, `kararlar/`) dört dosyaya sayılmaz.
 ### Düzeltildi
-- README "NE TESLİM EDİLMEDİ"deki Windows bacağı maddesi bayattı: `kapilar-windows` ilk koşusu 29 Eyl 2026'da (PR #7) yeşil ölçülmüştü; PR #8 ve main koşumunda da yeşil (18 Eki 2026). Madde düşürüldü.
+- README "NE TESLİM EDİLMEDİ"deki Windows bacağı maddesi bayattı: `kapilar-windows` ilk koşusu 29 Eyl 2026'da (PR #7) yeşil ölçülmüştü; PR #8 ve main koşumunda da yeşil (18 Eki 2026). Matris iş adının canlıda `kapilar` kaldığı da ölçüldü (check-run adı `kapilar`, PR #8 zorunlu kontrolü geçti). Madde düşürüldü; içindeki geçerli sınır (`[yigin] os` okunmuyor) ayrı madde olarak kaldı.
 
 ## [0.2.1] — 2026-09-29
 ### Eklendi

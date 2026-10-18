@@ -5,6 +5,7 @@
 ## NE TESLİM EDİLMEDİ (bu sürümde HAYIR ya da sonraki dilim)
 - `kur.py` sihirbazı — profil seçimi, hesap ölçümü, dal korumasını otomatik açma: **sonraki dilim**; bugün KURULUM.md'deki elle adımlar.
 - Alt süreç kodlamasının davranış vakası yalnız `kapi_komut` yolunda (26 Eyl 2026 çöküşü). `dosyalar` (`git ls-files`) ve `kapi_nabiz` (`git log`) çağrılarını altın küme yalnız STATİK tarar: metin-kipi `run`/`Popen`/`call`/`check_call`/`check_output` çağrısı `encoding='utf-8'` ve `errors`≠`'strict'` vermeli. Statik kural modül düzeyi çağrıları ve `from subprocess import run` takma adlarını görmez; ASCII dışı dosya adıyla davranış vakası yok, elle ölçüldü (Türkçe harflerin 12'sinden 10'u cp1254'te hatasız ama bozuk çözülüp `dosyalar()`'tan sessizce düşüyordu; Ğ ve Ş çöküyordu).
+- `[yigin] os` alanını iş akışı okumuyor: matris her projede iki sistemi de (ubuntu-24.04 + windows-latest) koşar.
 - Flutter ve Android kurulum adımları CI'da var ama gerçek bir mobil projede **ölçülmedi** (ÖLÇÜLEMEDİ).
 - Kod sağlığı karmaşıklık ölçümü yalnız Python için; diğer dillerde dosya uzunluğu ölçülür, karmaşıklık ÖLÇÜLEMEDİ yazılır.
 - Ürün nabzı skill'inin `[urun] desen` okuması: skill'e taşınmadı; `kapilar.py` nabzı kendisi hesaplar.
