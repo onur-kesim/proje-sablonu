@@ -1,6 +1,12 @@
 # CHANGELOG
 Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir sonraki etiketi bekler.
 
+## [Unreleased] — önerilen 0.3.0
+### Değiştirildi
+- GENEL ESASLAR v2.1 → v2.2: `DURUM.md` DEVİR yalnız oturum sayacı, aşama/boş kutular ve açılış cümlesini taşır; son yapılan, yarım kalan, sıradaki iş, açık karar/bloker, araç eksiği, uyarı ve dosyalar DEVİR'in altındaki hâl bölümlerine (GUNCEL DURUM · SONRAKI ADIM · ACIK KARARLAR · SABIT CERCEVE · ARSIV DIZINI) yazılır — tek ev. Sebep (ölçüldü 18 Eki 2026): hafiza-kur'un `bolum-kur`u bu beş bölümü DEVİR'in ÜSTÜNE ekliyor, aynı bilgi DEVİR alanlarıyla iki evde yaşıyordu; bölümler şablonda hazır gelince `devral --esle canli=DURUM.md` `bolum-kur`suz kurulur, `not → derle` DEVİR'e ve karar günlüğüne dokunmaz. Çekirdek blok 8.371 → 8.476 bayt (tavan 8.500).
+### Eklendi
+- KUR listesine seçmeli hafiza-kur kutusu; seçilirse makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/`, `gunluk/`, `kararlar/`) dört dosyaya sayılmaz.
+
 ## [0.2.1] — 2026-09-29
 ### Eklendi
 - CI'da Windows bacağı: `kapilar` işi matris oldu — `kapilar` (ubuntu-24.04; iş adı dal korumasındaki zorunlu kontrolle aynı bırakıldı, canlıda ÖLÇÜLMEDİ) + `kapilar-windows` (windows-latest; zorunlu listede değil, `fail-fast: false`, sürüm etiketine sabitlenmedi). Sebep: yerel-kodlama hata sınıfı UTF-8 yerelli Linux'ta görünmez (ölçüldü: eski kod Linux'ta varsayılan yerelde yeşil, `LC_ALL=C PYTHONUTF8=0` ile çöküyor); cp1252 ve cp1254 ikisi de `═`'in (E2 95 90) 0x90 baytını çözemez (Python 3.12.10'da ölçüldü), windows-latest'te de yakalanırdı (TAHMİN: runner cp1252). Bacağın GitHub'daki ilk koşusu bu satır yazılırken ÖLÇÜLMEDİ.

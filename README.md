@@ -24,6 +24,7 @@ Ayrıntı: `KURULUM.md`. İşleyişin tamamı: `CLAUDE.md` (çekirdek blok, 11 b
 
 ## BİTTİ LİSTESİ (ölçülmüş, teslim edilmiş)
 - Dört dosya düzeni: `CLAUDE.md` (çekirdek + profil + proje-özel) · `README.md` · `DURUM.md` · `DILIM.md`.
+- `DURUM.md` hâl bölümleri (v2.2): DEVİR yalnız sayaç + aşama + açılış cümlesi; durum, sıradaki iş, açık karar tek evde (GUNCEL DURUM · SONRAKI ADIM · ACIK KARARLAR · SABIT CERCEVE · ARSIV DIZINI). hafiza-kur (seçmeli, KUR kutusu) bu düzene `devral --esle canli=DURUM.md` ile `bolum-kur`suz oturur; şablondan açılan taze projede `devral → not → derle → kapi` YEŞİL, şablonun kapıları 7 PASS / 0 FAIL (18 Eki 2026, hafiza.py 6EA0A2ED, bulut Linux; Windows ÖLÇÜLMEDİ).
 - KEŞİF / YAPIM aşaması (v2.1): `proje.toml [proje] asama`. KEŞİF'te (fikir, araştırma, danışma, tasarım) süre tavanı yok, K1-K2-K8 işlemez, ürün nabzı kapısı ATLANDI (PASS değil); çıkışı `DILIM.md` ESAS KARARI kutuları + insanın "başla" sözü. Altın kümede 3 vaka: YAPIM 30 gün FAIL, KEŞİF 30 gün yakmaz, KEŞİF ATLANDI.
 - KUR ≤ 1 gün; MOD KRİTİK'in iki denetim turu yalnız TESLİM'de (KUR/altyapıda tek tur, D1 yeter); PROJE-ÖZEL iskeletinde PROJE KURALLARI (≤5). Dayanak: ilk gerçek kurulumda KUR kancasına iki tur + 26 mutant koşuldu (26 Eyl ölçümü).
 - `proje.toml`: yığın, komutlar, ürün deseni, profil, kapı eşikleri — CI ve araç tek kaynaktan okur.
