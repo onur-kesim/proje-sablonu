@@ -1,7 +1,7 @@
 # CHANGELOG
 Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir sonraki etiketi bekler.
 
-## [Unreleased] — önerilen 0.3.1
+## [0.3.1] — 2026-10-18
 ### Düzeltildi
 - `.gitattributes` eklendi: hafiza-kur makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/hafiza/**`) `-text`. Sebep (ölçüldü 18 Eki 2026, Windows 11, `core.autocrlf=true`): şablondan açılıp hafiza-kur kurulan proje ilk makinede YEŞİL, ama ikinci bir Windows klonunda satır sonu çevrimi mühürlü dosyaların SHA'sını değiştiriyor → `kapi` FAIL (10 H0: "CIPA BOZULDU", "defter MUHURSUZ degismis"). Aynı depo bu dört satırla klonlanınca `kapi` YEŞİL (iki klon aynı oturumda: dosyasız FAIL, dosyalı YEŞİL). hafiza-kur'u seçmeyen projede kuralların eşleştiği dosya yoktur, etkisizdir.
 ### Değiştirildi
