@@ -1,0 +1,5 @@
+# hafiza-kur makine dosyalari: satir sonu cevrimi muhurlu dosyalarin SHA'sini degistirir (Windows core.autocrlf=true -> kapi H0 FAIL, olculdu 18 Eki 2026)
+.hafizarc -text
+KONULAR.md -text
+SAKLAMA_PLANI.md -text
+arsiv/hafiza/** -text

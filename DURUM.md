@@ -23,6 +23,6 @@ Dosyalar: CLAUDE.md, proje.toml, DILIM.md
 | tarih | ürün nabzı (gün) | açık dilim yaşı (gün) | kapı kırmızı | sayaç |
 |---|---|---|---|---|
 
-## KARAR GÜNLÜĞÜ (sona eklenir, silinmez; tek satır, tarihli)
+## KARAR GÜNLÜĞÜ (sona eklenir, silinmez; tek satır, tarihli; uzun gerekçe → ADR, satırda yolu)
 - `<tarih>` — proje-sablonu v2.2'den kuruldu
 - `<tarih>` — "başla": KEŞİF → YAPIM (proje.toml asama = "yapim")   `<geçişte bu satır>`
