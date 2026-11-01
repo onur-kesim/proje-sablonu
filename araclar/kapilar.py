@@ -123,6 +123,18 @@ def python_karmasiklik(metin):
     return en
 
 
+PROJE_OZEL_BASLIK = re.compile(r'^# PROJE-ÖZEL\s*$', re.MULTILINE)
+
+
+def belge_satiri(rel_yol, metin):
+    """CLAUDE.md'de ortak blok + profil şablon metnidir: yalnız '# PROJE-ÖZEL' sonrası sayılır; başlık yoksa tamamı."""
+    if rel_yol.rsplit('/', 1)[-1] == 'CLAUDE.md':
+        m = PROJE_OZEL_BASLIK.search(metin)
+        if m:
+            return satir_sayisi(metin[m.end():])
+    return satir_sayisi(metin)
+
+
 def belge_kod_orani(belge_satir, kod_satir):
     if kod_satir == 0:
         return None
@@ -210,6 +222,10 @@ def altin_kume():
     vakalar.append(('temiz_basit', python_karmasiklik(kisa)[1] > 15, False, 'B4 yanlış-pozitif'))
     vakalar.append(('bozuk_oran', (belge_kod_orani(300, 100) or 0) > 1.0, True, 'B2 belge/kod'))
     vakalar.append(('temiz_oran', (belge_kod_orani(50, 100) or 0) > 1.0, False, 'B2 yanlış-pozitif'))
+    sablon = 'şablon satırı\n' * 200
+    vakalar.append(('temiz_sablon_payi', (belge_kod_orani(belge_satiri('CLAUDE.md', sablon + '# PROJE-ÖZEL\n' + 'p\n' * 10), 100) or 0) > 1.0, False, 'B2 şablon payı sayılmaz'))
+    vakalar.append(('bozuk_proje_ozel_buyuk', (belge_kod_orani(belge_satiri('CLAUDE.md', '# PROJE-ÖZEL\n' + 'proje satırı\n' * 200), 100) or 0) > 1.0, True, 'B2 proje-özel şişkin'))
+    vakalar.append(('bozuk_basliksiz', (belge_kod_orani(belge_satiri('CLAUDE.md', sablon), 100) or 0) > 1.0, True, 'B2 başlıksız: tamamı sayılır'))
     simdi = 1_800_000_000
     log = f'{simdi - 9 * 86400}\nsrc/a.py\n\n{simdi - 20 * 86400}\nREADME.md\n'
     vakalar.append(('bozuk_nabiz', (nabiz_gun(log, ['src/*'], simdi) or 0) > 7, True, 'D nabız'))
@@ -285,7 +301,7 @@ def kapi_oran(kok, izlenen, urun, cfg):
     tavan = cfg.get('belge_kod_oran_tavan', 1.0)
     if not tavan:
         return ('belge/kod oranı', 'ATLANDI', 'tavan 0: bu projenin ürünü belge')
-    belge = sum(satir_sayisi(metin_oku(os.path.join(kok, d))) for d in izlenen if eslesir(d, urun.get('belge_desen', ['*.md'])))
+    belge = sum(belge_satiri(d, metin_oku(os.path.join(kok, d))) for d in izlenen if eslesir(d, urun.get('belge_desen', ['*.md'])))
     kod = sum(satir_sayisi(metin_oku(os.path.join(kok, d))) for d in izlenen
               if os.path.splitext(d)[1] in KOD_UZANTI and eslesir(d, urun.get('desen', [])))
     oran = belge_kod_orani(belge, kod)

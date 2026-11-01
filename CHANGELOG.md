@@ -1,6 +1,11 @@
 # CHANGELOG
 Biçim: Keep a Changelog. Her git etiketi bir bölüm; [Unreleased] altı bir sonraki etiketi bekler.
 
+## [0.3.2] — 2026-11-01
+### Düzeltildi
+- `araclar/kapilar.py` belge/kod oranı: `CLAUDE.md`'de yalnız `# PROJE-ÖZEL` başlığından sonrası sayılır; ortak blok + profil şablon metnidir, projede değiştirilemez. Başlık yoksa dosyanın tamamı sayılır (eski projeler bozulmaz). Altın küme 18 → 21 vaka: şablon 200 + proje-özel 10 satır / kod 100 → PASS; proje-özel 200 / kod 100 → FAIL; başlıksız 200 / kod 100 → FAIL. Mutant (başlık kesmeyi kapat) `temiz_sablon_payi`'ni kırmızıya çevirdi.
+- Sebep (ölçüldü 1 Kas 2026): Octoprobe dilim-1'de belge/kod 304/236 = 1,29 FAIL; şablon payı ~101 satır (KURULUM 37 + CLAUDE ortak blok 37 + profil 27).
+
 ## [0.3.1] — 2026-10-18
 ### Düzeltildi
 - `.gitattributes` eklendi: hafiza-kur makine dosyaları (`.hafizarc`, `KONULAR.md`, `SAKLAMA_PLANI.md`, `arsiv/hafiza/**`) `-text`. Sebep (ölçüldü 18 Eki 2026, Windows 11, `core.autocrlf=true`): şablondan açılıp hafiza-kur kurulan proje ilk makinede YEŞİL, ama ikinci bir Windows klonunda satır sonu çevrimi mühürlü dosyaların SHA'sını değiştiriyor → `kapi` FAIL (10 H0: "CIPA BOZULDU", "defter MUHURSUZ degismis"). Aynı depo bu dört satırla klonlanınca `kapi` YEŞİL (iki klon aynı oturumda: dosyasız FAIL, dosyalı YEŞİL). hafiza-kur'u seçmeyen projede kuralların eşleştiği dosya yoktur, etkisizdir.
